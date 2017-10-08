@@ -31,8 +31,8 @@ class L003():
         #options.add_argument('--headless')
 
         self.driver = webdriver.Chrome(chrome_options=options)
-        # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
-        self.driver.maximize_window()
+        self.driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        #self.driver.maximize_window()
 
         ''' 1. Navigate to staging.getkumbu.com '''
         pTxt = "\n1. Navigate to staging.getkumbu.com\n"
