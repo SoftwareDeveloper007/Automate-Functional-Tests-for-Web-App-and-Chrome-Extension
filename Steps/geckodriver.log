@@ -1,0 +1,77 @@
+1507493394007	geckodriver	INFO	Listening on 127.0.0.1:49186
+1507493396170	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507493397416	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507493398701	Marionette	INFO	Enabled via --marionette
+1507493408242	Marionette	INFO	Listening on port 49194
+1507493409992	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507493410071	Marionette	DEBUG	Register listener.js for window 4294967297
+1507493410760	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507493415694	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507493415694	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507493418129	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+1507493418132	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507493418283	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507493418629	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507493418630	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507493418768	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/reset"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507493421526	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/reset"
+1507493422297	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/reset"
+1507493423294	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/reset"
+1507493423294	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/reset"
+1507493423446	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login"
+1507493423448	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+[Parent 23396] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Parent 23396] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8168] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 8168] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 23684] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 23684] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[GPU 9800] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+donManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507493488058	Marionette	INFO	Enabled via --marionette
+[Parent 24080] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 25652] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507493494699	Marionette	INFO	Listening on port 49400
+1507493494991	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507493495068	Marionette	DEBUG	Register listener.js for window 4294967297
+1507493495543	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507493498732	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507493498732	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507493500851	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507493502319	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507493504096	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507493504465	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507493504466	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507493504562	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/reset"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507493505643	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/reset"
+1507493505792	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/reset"
+1507493507278	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/reset"
+1507493507278	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/reset"
+1507493507428	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login"
+1507493507431	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login"
+1507493507494	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507493508592	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login"
+1507493508592	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login"
+1507493510563	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#"
+1507493515502	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#"
+1507493515604	Marionette	DEBUG	Received DOM event "popstate" for "https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#/#msgpane"
+1507493515891	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1507496521042	geckodriver	INFO	Listening on 127.0.0.1:55554
+1507496522896	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507496524540	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507496527187	Marionette	INFO	Enabled via --marionette
+1507496544129	Marionette	INFO	Listening on port 55564
+1507496545608	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507496545645	Marionette	DEBUG	Register listener.js for window 4294967297
+1507496546019	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507496548649	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507496548650	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507496558619	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.python.org/"
+1507496559151	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.python.org/"

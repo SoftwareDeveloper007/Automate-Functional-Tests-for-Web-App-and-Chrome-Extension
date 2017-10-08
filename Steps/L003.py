@@ -5,9 +5,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-class L002():
+
+class L003():
     def __init__(self, url, email, password):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -19,8 +21,16 @@ class L002():
 
         pTxt = "\n-------- Step 'L003' started!!! --------------------------------------------------------------------"
         print(pTxt)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--ignore-certificate-errors')
+        options.add_argument("--test-type")
+        options.add_argument('--start-maximized')
+        options.add_argument('--disable-java')
+        options.add_argument('--incognito')
+        options.add_argument('--use-mock-keychain')
+        #options.add_argument('--headless')
 
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(chrome_options=options)
         # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
         self.driver.maximize_window()
 
@@ -42,7 +52,7 @@ class L002():
         print(pTxt)
 
         try:
-            forgot_link = WebDriverWait(self.driver, 10).until(
+            forgot_link = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "span.password-link"))
             )
             forgot_link.click()
@@ -71,7 +81,7 @@ class L002():
         print(pTxt)
 
         try:
-            email_input = WebDriverWait(self.driver, 10).until(
+            email_input = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "input.kumbu-input"))
             )
             email_input.send_keys(self.email)
@@ -87,7 +97,7 @@ class L002():
         pTxt = "\n5. 'Send'\n"
         print(pTxt)
         try:
-            submit_btn = WebDriverWait(self.driver, 10).until(
+            submit_btn = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "input#login-submit"))
             )
             submit_btn.click()
@@ -103,7 +113,7 @@ class L002():
         pTxt = "\n6. Verify that 'An email to reset your password has been sent' is displayed\n"
         print(pTxt)
         try:
-            flash_msg = WebDriverWait(self.driver, 10).until(
+            flash_msg = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div#flash-messages"))
             )
 
@@ -121,12 +131,12 @@ class L002():
             self.driver.quit()
 
         ''' 7. Wait 5s '''
-        pTxt = "\n6. Wait 5s\n"
+        pTxt = "\n7. Wait 5s\n"
         print(pTxt)
         self.driver.implicitly_wait(5)
 
         ''' 8. Navigate to https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest# '''
-        pTxt = "\n1. Navigate to staging.getkumbu.com\n"
+        pTxt = "\n8. Navigate to https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#\n"
         print(pTxt)
         self.url = "https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#"
         try:
@@ -144,10 +154,11 @@ class L002():
         print(pTxt)
 
         try:
-            reset_link = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "div.all_message-min > div.all_message-min_text.all_message-min_text-3"))
+            reset_link1 = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "div.all_message-min > div.all_message-min_text.all_message-min_text-3"))
             )
-            reset_link.click()
+            reset_link1.click()
             pTxt = "\t\t(Success)\tClicked 'Reset your Kumbu password'"
             print(pTxt)
         except:
@@ -161,11 +172,12 @@ class L002():
         print(pTxt)
 
         try:
-            reset_link = WebDriverWait(self.driver, 10).until(
+            print(self.driver.page_source)
+            reset_link2 = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable(
                     (By.CSS_SELECTOR, "a.mcnButton"))
             )
-            reset_link.click()
+            reset_link2.click()
             pTxt = "\t\t(Success)\tClicked 'Reset your password'"
             print(pTxt)
         except:
@@ -179,7 +191,7 @@ class L002():
         print(pTxt)
 
         try:
-            rows = WebDriverWait(self.driver, 10).until(
+            rows = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_all_elements_located(
                     (By.CSS_SELECTOR, "input.kumbu-input"))
             )
@@ -212,7 +224,7 @@ class L002():
         pTxt = "\n13. Click 'Confirm your new password'\n"
         print(pTxt)
         try:
-            submit_btn = WebDriverWait(self.driver, 10).until(
+            submit_btn = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "input#login-submit"))
             )
             submit_btn.click()
@@ -228,7 +240,7 @@ class L002():
         pTxt = "\n14. Verify that 'Your password has been successfully' displayed\n"
         print(pTxt)
         try:
-            flash_msg = WebDriverWait(self.driver, 10).until(
+            flash_msg = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div#flash-messages"))
             )
 
@@ -255,5 +267,5 @@ class L002():
 
 
 if __name__ == '__main__':
-    app = L002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
+    app = L003(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
     app.startLogin()
