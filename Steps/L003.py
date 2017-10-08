@@ -30,9 +30,10 @@ class L003():
         options.add_argument('--use-mock-keychain')
         #options.add_argument('--headless')
 
-        self.driver = webdriver.Chrome(chrome_options=options)
-        self.driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
-        #self.driver.maximize_window()
+        #self.driver = webdriver.Chrome(chrome_options=options)
+        self.driver = webdriver.Chrome()
+        #self.driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        self.driver.maximize_window()
 
         ''' 1. Navigate to staging.getkumbu.com '''
         pTxt = "\n1. Navigate to staging.getkumbu.com\n"
@@ -154,11 +155,15 @@ class L003():
         print(pTxt)
 
         try:
-            reset_link1 = WebDriverWait(self.driver, 50).until(
-                EC.element_to_be_clickable(
+            reset_link = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
                     (By.CSS_SELECTOR, "div.all_message-min > div.all_message-min_text.all_message-min_text-3"))
             )
-            reset_link1.click()
+            self.driver.delete_all_cookies()
+            reset_link.click()
+            #actionChains = ActionChains(self.driver)
+            #actionChains.key_down(Keys.CONTROL).click(reset_link).key_up(Keys.CONTROL).perform()
+            #self.driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.TAB)
             pTxt = "\t\t(Success)\tClicked 'Reset your Kumbu password'"
             print(pTxt)
         except:
@@ -172,7 +177,8 @@ class L003():
         print(pTxt)
 
         try:
-            print(self.driver.page_source)
+            #self.url = "https://www.mailinator.com/v2/inbox.jsp?zone=public&query=kumbutest#/#msgpane"
+            #self.driver.get(self.url)
             reset_link2 = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable(
                     (By.CSS_SELECTOR, "a.mcnButton"))
