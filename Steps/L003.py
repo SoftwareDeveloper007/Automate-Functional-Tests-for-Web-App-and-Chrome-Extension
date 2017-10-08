@@ -169,29 +169,91 @@ class L002():
             pTxt = "\t\t(Success)\tClicked 'Reset your password'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tCan't Clicked 'Reset your password'"
+            pTxt = "\t\t(Failure)\tCan't click 'Reset your password'"
             print(pTxt)
             self.driver.quit()
             return
 
-        ''' 11. -	In the “New Password” Field, type “kumbu is cool” '''
-        pTxt = "\n10. Click on 'Reset Password'\n"
+        ''' 11. In the 'New Password' Field, type 'kumbu is cool' '''
+        pTxt = "\n11. In the 'New Password' Field, type 'kumbu is cool'\n"
         print(pTxt)
 
         try:
-            reset_link = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "a.mcnButton"))
+            rows = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, "input.kumbu-input"))
             )
-            reset_link.click()
-            pTxt = "\t\t(Success)\tClicked 'Reset your password'"
+            new_pwd = rows[0]
+            new_pwd.send_keys(self.password)
+            pTxt = "\t\t(Success)\tTyped 'kumbu is cool'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tCan't Clicked 'Reset your password'"
+            pTxt = "\t\t(Failure)\tCan't type 'kumbu is cool'"
             print(pTxt)
             self.driver.quit()
             return
 
+        ''' 12. In the 'Confirm New Password' Field, type 'kumbu is cool' '''
+        pTxt = "\n12. In the 'Confirm New Password' Field, type 'kumbu is cool'\n"
+        print(pTxt)
+
+        try:
+            confirm_pwd = rows[1]
+            confirm_pwd.send_keys(self.password)
+            pTxt = "\t\t(Success)\tTyped 'kumbu is cool'"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Failure)\tCan't type 'kumbu is cool'"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 13. Click 'Confirm your new password' '''
+        pTxt = "\n13. Click 'Confirm your new password'\n"
+        print(pTxt)
+        try:
+            submit_btn = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "input#login-submit"))
+            )
+            submit_btn.click()
+            pTxt = "\t\t(Success)\tClicked 'Confirm your new password' button."
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Failure)\tFailed to click 'Confirm your new password' button"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 14. Verify that 'Your password has been successfully' displayed '''
+        pTxt = "\n14. Verify that 'Your password has been successfully' displayed\n"
+        print(pTxt)
+        try:
+            flash_msg = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "div#flash-messages"))
+            )
+
+            if "Your password has been successfully changed" in flash_msg.text.strip():
+                pTxt = "\t\t(Success)\t'Your password has been successfully changed' is displayed"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\t'Your password has been successfully changed' is not displayed"
+                print(pTxt)
+                self.driver.quit()
+                return
+        except:
+            pTxt = "\t\t(Failure)\t'Your password has been successfully changed' is not displayed"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 15. Do test L001 '''
+        pTxt = "\n15. Do test L001\n"
+        print(pTxt)
+
+        app = L001(url='staging.getkumbu.com', email=self.email, password=self.password)
+        app.startLogin()
+
+
 if __name__ == '__main__':
-    app = L002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is not cool')
+    app = L002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
     app.startLogin()
