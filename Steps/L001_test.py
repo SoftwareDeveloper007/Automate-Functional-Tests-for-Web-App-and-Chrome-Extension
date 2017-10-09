@@ -5,23 +5,24 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+import unittest
 
-class C001():
-    def __init__(self, url, email, password):
+class L001_test(unittest.TestCase):
 
+    def setUp(self):
         ''' --- Initialize URL, Email, Password --- '''
-        self.url = 'https://' + url
-        self.email = email
-        self.password = password
+        self.url = 'https://staging.getkumbu.com/'
+        self.email = 'kumbutest@mailinator.com'
+        self.password = 'kumbu is cool'
 
-    def startLogin(self):
-
-        pTxt = "\n-------- Step 'C001' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'L001' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Chrome()
-        #driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
         self.driver.maximize_window()
+
+    def test_Steps(self):
 
         ''' 1. Navigate to staging.getkumbu.com '''
         pTxt = "\n1. Navigate to staging.getkumbu.com\n"
@@ -33,7 +34,6 @@ class C001():
         except:
             pTxt = "\t\t(Failure)\tFailed to load webpage"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 2. Input email adress: kumbutest@mailinator.com '''
@@ -47,7 +47,6 @@ class C001():
         except:
             pTxt = "\t\t(Failure)\tCan't find 'Email' and 'Password' Inputs"
             print(pTxt)
-            self.driver.quit()
             return
 
         try:
@@ -58,7 +57,6 @@ class C001():
         except:
             pTxt = "\t\t(Failure)\tFailed to input 'email'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 3. Input password: “kumbu is cool” '''
@@ -73,7 +71,6 @@ class C001():
         except:
             pTxt = "\t\t(Failure)\tFailed to input 'Password'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 4. Click Sign in '''
@@ -89,71 +86,77 @@ class C001():
         except:
             pTxt = "\t\t(Failure)\tFailed to click 'Sign in' button"
             print(pTxt)
-            self.driver.quit()
             return
 
-        ''' 5. Click on 'New Collection' '''
-        pTxt = "\n5. Click on 'New Collection'\n"
+        ''' 5. Verify that username is visible'''
+        pTxt = "\n5. Verify that username is visible\n"
         print(pTxt)
         try:
-            header = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.top-bar.secondary-navigation"))
+            user_btn = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "a.profile-link"))
             )
-            new_collection = header.find_element_by_css_selector("div.top-bar-left > ul.menu > li > a")
-            new_collection.click()
-            pTxt = "\t\t(Success)\tClicked 'New Collection'"
+            user_name = user_btn.text.strip()
+            pTxt = "\t\t(Success)\tUsername:'{}' is visible".format(user_name)
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tCan't click'New Collection'"
+            pTxt = "\t\t(Failure)\tUsername is not visible"
             print(pTxt)
-            self.driver.quit()
             return
 
-        ''' 6. Click on “New Collection” in the header, and select all text '''
-        pTxt = "\n6. Click on “New Collection” in the header, and select all text\n"
+        ''' 6. Click on username '''
+        pTxt = "\n6. Click on username\n"
         print(pTxt)
         try:
-            new_collection = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.title-wrapper.text-center > h1"))
-            )
-
-            actionChains = ActionChains(self.driver)
-            actionChains.click(new_collection).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL)\
-                .send_keys(Keys.DELETE).perform()
-
-            new_collection.send_keys("Kumbu Test 4")
-
-            pTxt = "\t\t(Success)\t"
+            user_btn.click()
+            pTxt = "\t\t(Success)\tClicked 'user name : {}'".format(user_name)
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\t"
+            pTxt = "\t\t(Failure)\tFailed to click 'user name : {}'".format(user_name)
             print(pTxt)
-            self.driver.quit()
             return
 
-        ''' 7. Check that it displays 0 memories '''
-        pTxt = "\n7. Check that it displays 0 memories\n"
+        ''' 7. Verify that profile panel is visible '''
+        pTxt = "\n7. Verify that profile panel is visible\n"
         print(pTxt)
         try:
-            new_collection = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.title-wrapper.text-center > h1"))
+            signout_btn = WebDriverWait(self.driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "li.profile-tab-signout > a"))
             )
-
-            actionChains = ActionChains(self.driver)
-            actionChains.click(new_collection).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
-                .send_keys(Keys.DELETE).perform()
-
-            new_collection.send_keys("Kumbu Test 4")
-
-            pTxt = "\t\t(Success)\t"
+            pTxt = "\t\t(Success)\tProfile pannel is visible"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\t"
+            pTxt = "\t\t(Failure)\tProfile pannel is not visible"
             print(pTxt)
-            self.driver.quit()
             return
+
+        ''' 8. Click on Logout '''
+        pTxt = "\n8. Click on Logout\n"
+        print(pTxt)
+        try:
+            signout_btn.click()
+            pTxt = "\t\t(Success)\tProfile pannel is visible. Clicked 'Sign out'"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Failure)\tProfile pannel is not visible. And failed to click 'Sign out'"
+            print(pTxt)
+            return
+
+        ''' 9.Verify that you are back at staging.getkumbu.com '''
+        pTxt = "\n9.Verify that you are back at staging.getkumbu.com\n"
+        print(pTxt)
+        current_url = self.driver.current_url
+        if current_url == 'https://staging.getkumbu.com':
+            pTxt = "\t\t(Success)\tyou are back at staging.getkumbu.com"
+            print(pTxt)
+        else:
+            pTxt = "\t\t(Failure)\tyou are not back at staging.getkumbu.com"
+            print(pTxt)
+            return
+
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 
 if __name__ == '__main__':
-    app = C001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
-    app.startLogin()
+    unittest.main()
