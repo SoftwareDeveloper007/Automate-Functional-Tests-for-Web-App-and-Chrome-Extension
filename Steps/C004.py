@@ -5,9 +5,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
+import time
 
 
-class C002():
+class C004():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -128,42 +129,11 @@ class C002():
             self.driver.quit()
             return
 
-        ''' 6. Click on 'Browse' '''
-        pTxt = "\n6. Click on 'Browse'\n"
+        ''' 5. Reload page '''
+        pTxt = "\n5. Reload page\n"
         print(pTxt)
-        try:
-            browse_btn = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "a#uploadFilesEmptyCollection"))
-            )
-            browse_btn.click()
-            pTxt = "\t\t(Success)\tClicked Successfully"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\tFailed to click"
-            print(pTxt)
-            self.driver.quit()
-            return
-
-        ''' 7. Click on 'Browse' '''
-        pTxt = "\n7. Click on 'Browse'\n"
-        print(pTxt)
-        try:
-            browse_btn = WebDriverWait(self.driver, 50).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "div.drag-drop-browse.dz-clickable"))
-            )
-            browse_btn.click()
-            pTxt = "\t\t(Success)\tClicked Successfully"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\tFailed to click"
-            print(pTxt)
-            self.driver.quit()
-            return
-
 
 if __name__ == '__main__':
-    app = C002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = C004(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                collection_txt='Kumbu Test 6')
     app.startSteps()
