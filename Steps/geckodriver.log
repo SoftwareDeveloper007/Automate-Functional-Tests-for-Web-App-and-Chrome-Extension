@@ -1,0 +1,192 @@
+1507618655358	geckodriver	INFO	Listening on 127.0.0.1:63251
+1507618657321	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507618658501	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507618659658	Marionette	INFO	Enabled via --marionette
+[Child 57328] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 57328] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507618664614	Marionette	INFO	Listening on port 63257
+1507618664903	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507618665012	Marionette	DEBUG	Register listener.js for window 6442450945
+1507618665189	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507618667858	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507618667858	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507618670912	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507618672106	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507618672275	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618675052	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507618675052	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618677461	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507618677463	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507618677528	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507618678828	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507618678829	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507618679035	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/Cad358c13-ee3b-40a3-8ccf-47be97acb796/"
+1507618691037	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/Cad358c13-ee3b-40a3-8ccf-47be97acb796/"
+1507618725140	geckodriver	INFO	Listening on 127.0.0.1:63345
+1507618727195	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507618727382	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507618727956	Marionette	INFO	Enabled via --marionette
+[Child 29476] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 29476] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507618730689	Marionette	INFO	Listening on port 63351
+1507618730817	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507618730861	Marionette	DEBUG	Register listener.js for window 6442450945
+1507618730885	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507618733174	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507618733174	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507618735671	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507618737289	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507618737417	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618739984	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507618739985	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618742747	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507618742750	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507618742810	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507618744055	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507618744056	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507618744180	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/C95429fcc-00cf-4176-b40a-10ccdf68e214/"
+1507618753219	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/C95429fcc-00cf-4176-b40a-10ccdf68e214/"
+JavaScript error: https://staging.getkumbu.com/static/js/main.min.js?v=20171003, line 24: TypeError: n is null
+1507618839511	geckodriver	INFO	Listening on 127.0.0.1:63448
+1507618841568	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507618841776	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507618842545	Marionette	INFO	Enabled via --marionette
+[Child 54400] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 54400] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507618844842	Marionette	INFO	Listening on port 63454
+1507618845193	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507618845230	Marionette	DEBUG	Register listener.js for window 4294967297
+1507618845250	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507618855773	geckodriver	INFO	Listening on 127.0.0.1:63489
+1507618857829	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507618858008	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507618858603	Marionette	INFO	Enabled via --marionette
+[Child 12060] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 12060] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507618861042	Marionette	INFO	Listening on port 63495
+1507618861452	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507618861490	Marionette	DEBUG	Register listener.js for window 6442450945
+1507618861560	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507618863763	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507618863763	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507618866270	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507618867881	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507618868016	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618870571	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507618870571	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618872473	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507618872644	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507618872698	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507618874096	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507618874097	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507618874223	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/C1aa82498-9bc9-4f61-8933-0effc162cc90/"
+1507618882386	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/C1aa82498-9bc9-4f61-8933-0effc162cc90/"
+JavaScript error: https://staging.getkumbu.com/static/js/main.min.js?v=20171003, line 24: TypeError: n is null
+1507618941619	geckodriver	INFO	Listening on 127.0.0.1:63603
+1507618943673	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507618943867	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507618944615	Marionette	INFO	Enabled via --marionette
+[Child 58052] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 58052] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507618947278	Marionette	INFO	Listening on port 63609
+1507618947305	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507618947343	Marionette	DEBUG	Register listener.js for window 4294967297
+1507618947452	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507618949568	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507618949568	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507618952395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507618953763	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507618953901	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618956158	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507618956159	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507618958681	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507618958684	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507618958760	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507618960309	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507618960310	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507618960445	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/C30bb0870-e71b-428d-98a6-52f29265abfe/"
+1507618970886	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/C30bb0870-e71b-428d-98a6-52f29265abfe/"
+1507619079050	geckodriver	INFO	Listening on 127.0.0.1:63696
+1507619081108	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507619081298	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507619081930	Marionette	INFO	Enabled via --marionette
+[Child 35348] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 35348] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507619084802	Marionette	INFO	Listening on port 63702
+1507619085232	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507619085267	Marionette	DEBUG	Register listener.js for window 4294967297
+1507619085364	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507619087781	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507619087782	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507619090673	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507619092090	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+1507619092222	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507619095004	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507619095005	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507619101447	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507619101449	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507619101510	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507619102941	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507619102944	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507619103099	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/C68cd85f6-25d0-485e-88c4-74cb5f7775a3/"
+1507619111349	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/C68cd85f6-25d0-485e-88c4-74cb5f7775a3/"
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]
+JavaScript error: resource:///modules/WindowsJumpLists.jsm, line 378: NS_ERROR_FILE_NOT_FOUND: Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [nsIJumpListShortcut.app]

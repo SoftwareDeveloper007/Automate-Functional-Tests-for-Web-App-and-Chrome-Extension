@@ -21,6 +21,7 @@ class C001():
         pTxt = "\n-------- Step 'C001' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
+        '''
         options = webdriver.ChromeOptions()
         options.add_argument('--ignore-certificate-errors')
         options.add_argument("--test-type")
@@ -28,10 +29,13 @@ class C001():
         # options.add_argument('--disable-java')
         # options.add_argument('--incognito')
         options.add_argument('--use-mock-keychain')
-        # self.driver = webdriver.Chrome()
-        self.driver = webdriver.Chrome(chrome_options=options)
+        options.add_argument('--disable-setuid-sandbox')
+        #self.driver = webdriver.Chrome(chrome_options=options)
         # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        '''
+        self.driver = webdriver.Firefox()
         self.driver.maximize_window()
+
 
         ''' 1. Navigate to staging.getkumbu.com '''
         pTxt = "\n1. Navigate to staging.getkumbu.com\n"
@@ -135,9 +139,7 @@ class C001():
 
             actionChains = ActionChains(self.driver)
             actionChains.click(new_collection).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
-                .send_keys(Keys.DELETE).perform()
-
-            new_collection.send_keys(self.collection_txt)
+                .send_keys(Keys.DELETE).send_keys(self.collection_txt).perform()
 
             pTxt = "\t\t(Success)\t"
             print(pTxt)
