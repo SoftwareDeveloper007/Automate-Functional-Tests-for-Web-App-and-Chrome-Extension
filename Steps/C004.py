@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 import time
 
 
-class C004():
+class C004_005():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -132,8 +132,39 @@ class C004():
         ''' 5. Reload page '''
         pTxt = "\n5. Reload page\n"
         print(pTxt)
+        self.driver.refresh()
+
+        ''' 6. Sortby '''
+        pTxt = "\n6. Sortby\n"
+        print(pTxt)
+
+        try:
+
+            sortby_btn = WebDriverWait(self.driver, 100).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "li.is-dropdown-submenu-parent.opens-left > a"))
+            )
+
+            sortby_btn.click()
+
+            sortbydate_btn = WebDriverWait(self.driver, 100).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "li.sort-by-date > a"))
+            )
+            sortbydate_btn.click()
+            pTxt = "\t\t(Success)\tSofted by 'Date added'"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tFailed to softed by 'Date added'"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+
+        self.driver.quit()
+        return
 
 if __name__ == '__main__':
-    app = C004(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = C004_005(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                collection_txt='Kumbu Test 6')
     app.startSteps()
