@@ -43,7 +43,7 @@ class C001():
         print(pTxt)
 
         try:
-            inputs = WebDriverWait(self.driver, 10).until(
+            inputs = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, "input.kumbu-input"))
             )
         except:
@@ -82,7 +82,7 @@ class C001():
         pTxt = "\n4. Click Sign in\n"
         print(pTxt)
         try:
-            submit_btn = WebDriverWait(self.driver, 10).until(
+            submit_btn = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "input#login-submit"))
             )
             submit_btn.click()
@@ -98,7 +98,7 @@ class C001():
         pTxt = "\n5. Click on 'New Collection'\n"
         print(pTxt)
         try:
-            header = WebDriverWait(self.driver, 10).until(
+            header = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div.top-bar.secondary-navigation"))
             )
             new_collection = header.find_element_by_css_selector("div.top-bar-left > ul.menu > li > a")
@@ -115,7 +115,7 @@ class C001():
         pTxt = "\n6. Click on “New Collection” in the header, and select all text\n"
         print(pTxt)
         try:
-            new_collection = WebDriverWait(self.driver, 10).until(
+            new_collection = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div.title-wrapper.text-center > h1"))
             )
 
@@ -148,7 +148,7 @@ class C001():
         pTxt = "\n8. Click 'Back to collections'\n"
         print(pTxt)
         try:
-            back_btn = WebDriverWait(self.driver, 10).until(
+            back_btn = WebDriverWait(self.driver, 50).until(
                 EC.element_to_be_clickable((By.CSS_SELECTOR, "a.back-collections"))
             )
             back_btn.click()
@@ -164,8 +164,8 @@ class C001():
         pTxt = "\n9. Check that 'Collection for Test $TEST_NUMBER' is visible on the page\n"
         print(pTxt)
         try:
-            collections = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.collection.columns.small-12.medium-3.text-center"))
+            collections = WebDriverWait(self.driver, 50).until(
+                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.collection.columns.small-12.medium-3.text-center"))
             )
             flag = False
             for collection in collections:
@@ -189,5 +189,5 @@ class C001():
 
 if __name__ == '__main__':
     app = C001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 4')
+               collection_txt='Kumbu Test 6')
     app.startLogin()
