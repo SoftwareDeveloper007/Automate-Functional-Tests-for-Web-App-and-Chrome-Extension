@@ -137,7 +137,7 @@ class C001():
             actionChains.click(new_collection).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
                 .send_keys(Keys.DELETE).perform()
 
-            new_collection.send_keys("Kumbu Test 5")
+            new_collection.send_keys(self.collection_txt)
 
             pTxt = "\t\t(Success)\t"
             print(pTxt)
@@ -152,16 +152,6 @@ class C001():
         pTxt = "\n7. Check that it displays 0 memories\n"
         print(pTxt)
         try:
-            new_collection = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.title-wrapper.text-center > h1"))
-            )
-
-            actionChains = ActionChains(self.driver)
-            actionChains.click(new_collection).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
-                .send_keys(Keys.DELETE).perform()
-
-            new_collection.send_keys(self.collection_txt)
-
             display_txt = self.driver.find_element_by_css_selector("p.collection-meta.item-info").text.strip()
             pTxt = "\t\t(Success)\t'{}' is displayed".format(display_txt)
             print(pTxt)
@@ -194,7 +184,7 @@ class C001():
         print(pTxt)
         try:
             collections = WebDriverWait(self.driver, 10).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "div.collection.columns.small-12.medium-3.text-center"))
+                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.collection.columns.small-12.medium-3.text-center"))
             )
             flag = False
             for collection in collections:
