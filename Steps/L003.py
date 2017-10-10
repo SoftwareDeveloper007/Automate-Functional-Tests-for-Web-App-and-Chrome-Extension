@@ -106,7 +106,7 @@ class L003():
         print(pTxt)
         try:
             flash_msg = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div#flash-messages"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "div#flash-messages"))
             )
 
             if "An email to reset your password has been sent" in flash_msg.text.strip():

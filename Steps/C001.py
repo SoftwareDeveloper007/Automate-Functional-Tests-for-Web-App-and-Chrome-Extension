@@ -21,18 +21,6 @@ class C001():
         pTxt = "\n-------- Step 'C001' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
-        '''
-        options = webdriver.ChromeOptions()
-        options.add_argument('--ignore-certificate-errors')
-        options.add_argument("--test-type")
-        options.add_argument('--start-maximized')
-        # options.add_argument('--disable-java')
-        # options.add_argument('--incognito')
-        options.add_argument('--use-mock-keychain')
-        options.add_argument('--disable-setuid-sandbox')
-        #self.driver = webdriver.Chrome(chrome_options=options)
-        # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
-        '''
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
 
@@ -47,7 +35,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tFailed to load webpage"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -62,7 +49,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tCan't find 'Email' and 'Password' Inputs"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -74,7 +60,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tFailed to input 'email'"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -90,7 +75,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tFailed to input 'Password'"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -107,7 +91,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tFailed to click 'Sign in' button"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -125,7 +108,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\tCan't click'New Collection'"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -146,7 +128,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\t"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -160,7 +141,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\t"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -177,7 +157,6 @@ class C001():
         except:
             pTxt = "\t\t(Error)\t Failed to click 'Back to collections'"
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
@@ -202,11 +181,9 @@ class C001():
         except:
             pTxt = "\t\t(Error)\t '{}' is not displayed".format(self.collection_txt)
             print(pTxt)
-            self.driver.close()
             self.driver.quit()
             return
 
-        self.driver.close()
         self.driver.quit()
 
 
