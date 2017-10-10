@@ -8,23 +8,22 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import unittest, time
 
-import L001
+import L001_test
 
-class L003():
-    def __init__(self, url, email, password):
+class L003_test(unittest.TestCase):
 
+    def setUp(self):
         ''' --- Initialize URL, Email, Password --- '''
-        self.url = 'https://' + url
-        self.email = email
-        self.password = password
-
-    def startSteps(self):
+        self.url = 'https://staging.getkumbu.com/'
+        self.email = 'kumbutest@mailinator.com'
+        self.password = 'kumbu is cool'
 
         pTxt = "\n-------- Step 'L003' started!!! --------------------------------------------------------------------"
         print(pTxt)
-
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
+
+    def test_Steps(self):
 
         ''' 1. Navigate to staging.getkumbu.com '''
         pTxt = "\n1. Navigate to staging.getkumbu.com\n"
@@ -34,9 +33,8 @@ class L003():
             pTxt = "\t\t(Success)\tLoad webpage successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to load webpage"
+            pTxt = "\t\t(Failure)\tFailed to load webpage"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 2. Click on 'Forgot Password' '''
@@ -51,9 +49,8 @@ class L003():
             pTxt = "\t\t(Success)\tClicked 'Forgot your password?'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tCan't click 'Forgot your password?'"
+            pTxt = "\t\t(Failure)\tCan't click 'Forgot your password?'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 3. Verify that page https://staging.getkumbu.com/reset is displayed '''
@@ -80,9 +77,8 @@ class L003():
             pTxt = "\t\t(Success)\tInput email successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to input 'email'"
+            pTxt = "\t\t(Failure)\tFailed to input 'email'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 5. 'Send' '''
@@ -96,9 +92,8 @@ class L003():
             pTxt = "\t\t(Success)\tClicked 'Send' button."
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to click 'Send' button"
+            pTxt = "\t\t(Failure)\tFailed to click 'Send' button"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 6. Verify that 'An email to reset your password has been sent' is displayed '''
@@ -118,7 +113,7 @@ class L003():
                 self.driver.quit()
 
         except:
-            pTxt = "\t\t(Error)\t'Invalid email or password' is not displayed"
+            pTxt = "\t\t(Failure)\t'Invalid email or password' is not displayed"
             print(pTxt)
             self.driver.quit()
 
@@ -137,9 +132,8 @@ class L003():
             pTxt = "\t\t(Success)\tLoad a new webpage successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to load a new webpage"
+            pTxt = "\t\t(Failure)\tFailed to load a new webpage"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 9. Click on 'Reset your Kumbu Password' '''
@@ -159,9 +153,8 @@ class L003():
             pTxt = "\t\t(Success)\tClicked 'Reset your Kumbu password'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tCan't Clicked 'Reset your Kumbu password'"
+            pTxt = "\t\t(Failure)\tCan't Clicked 'Reset your Kumbu password'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 10. Click on 'Reset Password' '''
@@ -179,9 +172,8 @@ class L003():
             pTxt = "\t\t(Success)\tClicked 'Reset your password'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tCan't click 'Reset your password'"
+            pTxt = "\t\t(Failure)\tCan't click 'Reset your password'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 11. In the 'New Password' Field, type 'kumbu is cool' '''
@@ -198,9 +190,8 @@ class L003():
             pTxt = "\t\t(Success)\tTyped 'kumbu is cool'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tCan't type 'kumbu is cool'"
+            pTxt = "\t\t(Failure)\tCan't type 'kumbu is cool'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 12. In the 'Confirm New Password' Field, type 'kumbu is cool' '''
@@ -213,9 +204,8 @@ class L003():
             pTxt = "\t\t(Success)\tTyped 'kumbu is cool'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tCan't type 'kumbu is cool'"
+            pTxt = "\t\t(Failure)\tCan't type 'kumbu is cool'"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 13. Click 'Confirm your new password' '''
@@ -229,9 +219,8 @@ class L003():
             pTxt = "\t\t(Success)\tClicked 'Confirm your new password' button."
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to click 'Confirm your new password' button"
+            pTxt = "\t\t(Failure)\tFailed to click 'Confirm your new password' button"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 14. Verify that 'Your password has been successfully' displayed '''
@@ -246,25 +235,26 @@ class L003():
                 pTxt = "\t\t(Success)\t'Your password has been successfully changed' is displayed"
                 print(pTxt)
             else:
-                pTxt = "\t\t(Error)\t'Your password has been successfully changed' is not displayed"
+                pTxt = "\t\t(Failure)\t'Your password has been successfully changed' is not displayed"
                 print(pTxt)
                 self.driver.quit()
                 return
         except:
-            pTxt = "\t\t(Error)\t'Your password has been successfully changed' is not displayed"
+            pTxt = "\t\t(Failure)\t'Your password has been successfully changed' is not displayed"
             print(pTxt)
-            self.driver.quit()
             return
 
         ''' 15. Do test L001 '''
         pTxt = "\n15. Do test L001\n"
         print(pTxt)
 
-        self.driver.quit()
         app = L001(url='staging.getkumbu.com', email=self.email, password=self.password)
-        app.startSteps()
+        app.startLogin()
+
+    def tearDown(self):
+        self.driver.close()
+        self.driver.quit()
 
 
 if __name__ == '__main__':
-    app = L003(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
-    app.startSteps()
+    unittest.main()

@@ -14,13 +14,12 @@ class L001():
         self.email = email
         self.password = password
 
-    def startLogin(self):
+    def startSteps(self):
 
         pTxt = "\n-------- Step 'L001' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
-        self.driver = webdriver.Chrome()
-        #driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        self.driver = webdriver.Firefox()
         self.driver.maximize_window()
 
         ''' 1. Navigate to staging.getkumbu.com '''
@@ -31,7 +30,7 @@ class L001():
             pTxt = "\t\t(Success)\tLoad webpage successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to load webpage"
+            pTxt = "\t\t(Error)\tFailed to load webpage"
             print(pTxt)
             self.driver.quit()
             return
@@ -45,7 +44,7 @@ class L001():
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, "input.kumbu-input"))
             )
         except:
-            pTxt = "\t\t(Failure)\tCan't find 'Email' and 'Password' Inputs"
+            pTxt = "\t\t(Error)\tCan't find 'Email' and 'Password' Inputs"
             print(pTxt)
             self.driver.quit()
             return
@@ -56,7 +55,7 @@ class L001():
             pTxt = "\t\t(Success)\tInput email successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to input 'email'"
+            pTxt = "\t\t(Error)\tFailed to input 'email'"
             print(pTxt)
             self.driver.quit()
             return
@@ -71,7 +70,7 @@ class L001():
             pTxt = "\t\t(Success)\tInputted 'Password' successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to input 'Password'"
+            pTxt = "\t\t(Error)\tFailed to input 'Password'"
             print(pTxt)
             self.driver.quit()
             return
@@ -87,7 +86,7 @@ class L001():
             pTxt = "\t\t(Success)\tClicked 'Sign in' button. Logged in successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to click 'Sign in' button"
+            pTxt = "\t\t(Error)\tFailed to click 'Sign in' button"
             print(pTxt)
             self.driver.quit()
             return
@@ -103,7 +102,7 @@ class L001():
             pTxt = "\t\t(Success)\tUsername:'{}' is visible".format(user_name)
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tUsername is not visible"
+            pTxt = "\t\t(Error)\tUsername is not visible"
             print(pTxt)
             self.driver.quit()
             return
@@ -116,7 +115,7 @@ class L001():
             pTxt = "\t\t(Success)\tClicked 'user name : {}'".format(user_name)
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to click 'user name : {}'".format(user_name)
+            pTxt = "\t\t(Error)\tFailed to click 'user name : {}'".format(user_name)
             print(pTxt)
             self.driver.quit()
             return
@@ -131,7 +130,7 @@ class L001():
             pTxt = "\t\t(Success)\tProfile pannel is visible"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tProfile pannel is not visible"
+            pTxt = "\t\t(Error)\tProfile pannel is not visible"
             print(pTxt)
             self.driver.quit()
             return
@@ -144,7 +143,7 @@ class L001():
             pTxt = "\t\t(Success)\tProfile pannel is visible. Clicked 'Sign out'"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tProfile pannel is not visible. And failed to click 'Sign out'"
+            pTxt = "\t\t(Error)\tProfile pannel is not visible. And failed to click 'Sign out'"
             print(pTxt)
             self.driver.quit()
             return
@@ -157,12 +156,13 @@ class L001():
             pTxt = "\t\t(Success)\tyou are back at staging.getkumbu.com"
             print(pTxt)
         else:
-            pTxt = "\t\t(Failure)\tyou are not back at staging.getkumbu.com"
+            pTxt = "\t\t(Error)\tyou are not back at staging.getkumbu.com"
             print(pTxt)
             self.driver.quit()
             return
 
+        self.driver.quit()
 
 if __name__ == '__main__':
     app = L001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool')
-    app.startLogin()
+    app.startSteps()

@@ -15,13 +15,12 @@ class L002():
         self.email = email
         self.password = password
 
-    def startLogin(self):
+    def startSteps(self):
 
         pTxt = "\n-------- Step 'L002' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
-        self.driver = webdriver.Chrome()
-        # driver = webdriver.Chrome(os.getcwd() + '/WebDriver/chromedriver.exe')
+        self.driver = webdriver.Firefox()
         self.driver.maximize_window()
 
         ''' 1. Navigate to staging.getkumbu.com '''
@@ -32,7 +31,7 @@ class L002():
             pTxt = "\t\t(Success)\tLoad webpage successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to load webpage"
+            pTxt = "\t\t(Error)\tFailed to load webpage"
             print(pTxt)
             self.driver.quit()
             return
@@ -46,7 +45,7 @@ class L002():
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, "input.kumbu-input"))
             )
         except:
-            pTxt = "\t\t(Failure)\tCan't find 'Email' and 'Password' Inputs"
+            pTxt = "\t\t(Error)\tCan't find 'Email' and 'Password' Inputs"
             print(pTxt)
             self.driver.quit()
             return
@@ -57,7 +56,7 @@ class L002():
             pTxt = "\t\t(Success)\tInput email successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to input 'email'"
+            pTxt = "\t\t(Error)\tFailed to input 'email'"
             print(pTxt)
             self.driver.quit()
             return
@@ -72,7 +71,7 @@ class L002():
             pTxt = "\t\t(Success)\tInputted 'Password' successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to input 'Password'"
+            pTxt = "\t\t(Error)\tFailed to input 'Password'"
             print(pTxt)
             self.driver.quit()
             return
@@ -88,7 +87,7 @@ class L002():
             pTxt = "\t\t(Success)\tClicked 'Sign in' button. Logged in successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to click 'Sign in' button"
+            pTxt = "\t\t(Error)\tFailed to click 'Sign in' button"
             print(pTxt)
             self.driver.quit()
             return
@@ -110,7 +109,7 @@ class L002():
                 self.driver.quit()
                 return
         except:
-            pTxt = "\t\t(Failure)\t'Invalid email or password' is not displayed"
+            pTxt = "\t\t(Error)\t'Invalid email or password' is not displayed"
             print(pTxt)
             self.driver.quit()
             return
@@ -125,12 +124,13 @@ class L002():
             pTxt = "\t\t(Success)\tClicked 'x' in 'Invalid email or password' successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Failure)\tFailed to 'x' in 'Invalid email or password'"
+            pTxt = "\t\t(Error)\tFailed to 'x' in 'Invalid email or password'"
             print(pTxt)
             self.driver.quit()
             return
 
+        self.driver.quit()
 
 if __name__ == '__main__':
     app = L002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is not cool')
-    app.startLogin()
+    app.startSteps()
