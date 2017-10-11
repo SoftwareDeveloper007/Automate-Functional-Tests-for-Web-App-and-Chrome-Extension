@@ -7,21 +7,19 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Delete Collection '''
-class C011():
-    def __init__(self, url, email, password, collection_txt, img_txt, tag_txt):
+''' Move Items '''
+class C012():
+    def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
         self.collection_txt = collection_txt
-        self.img_txt = img_txt
-        self.tag_txt = tag_txt
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C011' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C012' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -96,9 +94,10 @@ class C011():
             self.driver.quit()
             return
 
-        ''' 5. Click on 'Collection for Test $TEST_NUMBER' '''
-        pTxt = "\n5. Click on 'Collection for Test $TEST_NUMBER'\n"
+        ''' 5. Navigate to the Memories Collection '''
+        pTxt = "\n5. Navigate to the Memories Collection\n"
         print(pTxt)
+
         try:
             collections = WebDriverWait(self.driver, 50).until(
                 EC.visibility_of_all_elements_located(
@@ -131,70 +130,27 @@ class C011():
             self.driver.quit()
             return
 
-        memory_txt = WebDriverWait(self.driver, 50).until(
-            EC.presence_of_element_located(
-                (By.CSS_SELECTOR, "p.collection-meta.item-info"))
-        )
-
-        pTxt = "\nNote: '{}' is displayed\n".format(memory_txt.text.strip())
-        print(pTxt)
-
-        ''' 6. Click the rightmost menu item '''
-        pTxt = "\n6. Click the rightmost menu item\n"
+        ''' 6. Select the first item (click in the circle) '''
+        pTxt = "\n6. Select the first item (click in the circle)\n"
         print(pTxt)
 
         try:
-            dropdown_btns = WebDriverWait(self.driver, 50).until(
-                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "li.is-dropdown-submenu-parent.opens-left"))
+            images = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
             )
-
             actions = ActionChains(self.driver)
-            actions.move_to_element(dropdown_btns[1]).click().perform()
+            actions.move_to_element(images[0]).perform()
+
+            check = WebDriverWait(images[0], 50).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "div.item-overlay > span.item-selector.has-selection-event > img"))
+            )
             actions = ActionChains(self.driver)
-            actions.move_to_element(dropdown_btns[1]).click().perform()
+            actions.move_to_element(check).click().perform()
 
-            #hover = ActionChains(self.driver).move_to_element(dropdown_btns[1])
-            #hover.perform()
-
-            pTxt = "\t\t(Success)\t"
+            pTxt = "\t\t(Success)\tClicked 'Sign in' button. Logged in successfully"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\t"
-            print(pTxt)
-            self.driver.quit()
-            return
-
-        ''' 7. Click Delete Collection '''
-        pTxt = "\n7. Click Delete Collection\n"
-        print(pTxt)
-
-        try:
-            delete_collection_btn = WebDriverWait(dropdown_btns[1], 50).until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "ul.menu.submenu.is-dropdown-submenu.first-sub.vertical > li > a"))
-            )
-            delete_collection_btn.click()
-            pTxt = "\t\t(Success)\t"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\t"
-            print(pTxt)
-            self.driver.quit()
-            return
-
-        ''' 8. Click Delete Collection '''
-        pTxt = "\n8. Click Delete Collection\n"
-        print(pTxt)
-
-        try:
-            delete_collection_btn = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.collection-delete-options > a"))
-            )
-            delete_collection_btn.click()
-            pTxt = "\t\t(Success)\t"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\t"
+            pTxt = "\t\t(Error)\tFailed to click 'Sign in' button"
             print(pTxt)
             self.driver.quit()
             return
@@ -203,6 +159,6 @@ class C011():
         return
 
 if __name__ == '__main__':
-    app = C011(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='New Collection', img_txt='Test Image 6', tag_txt='Test Tag 6')
+    app = C012(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+               collection_txt='Memories')
     app.startSteps()
