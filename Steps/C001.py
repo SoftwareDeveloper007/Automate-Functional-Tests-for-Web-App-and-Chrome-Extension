@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-
+''' Create Collection '''
 class C001():
     def __init__(self, url, email, password, collection_txt):
 

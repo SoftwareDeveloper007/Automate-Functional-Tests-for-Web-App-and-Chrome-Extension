@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-
+''' Upload image to new collection '''
 class C002():
     def __init__(self, url, email, password, collection_txt):
 

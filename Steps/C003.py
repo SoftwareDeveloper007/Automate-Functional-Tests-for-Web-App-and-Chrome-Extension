@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-
+''' Upload image to existing collection '''
 class C003():
     def __init__(self, url, email, password, collection_txt):
 

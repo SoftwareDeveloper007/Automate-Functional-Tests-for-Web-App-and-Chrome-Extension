@@ -7,9 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Check  coverimage '''
-''' Date Added Sort  '''
-class C004_005():
+''' Image Item Display '''
+class C006():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -130,42 +129,74 @@ class C004_005():
             self.driver.quit()
             return
 
-        ''' 5. Reload page '''
-        pTxt = "\n5. Reload page\n"
+        ''' 6. Click on the image whose src starts with /item/thumbnail '''
+        pTxt = "\n6. Click on the image whose src starts with /item/thumbnail\n"
         print(pTxt)
-        self.driver.refresh()
-
-        ''' 6. Sortby '''
-        pTxt = "\n6. Sortby\n"
-        print(pTxt)
-
         try:
-
-            sortby_btn = WebDriverWait(self.driver, 100).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "li.is-dropdown-submenu-parent.opens-left > a"))
+            images = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
             )
 
-            sortby_btn.click()
-
-            sortbydate_btn = WebDriverWait(self.driver, 100).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "li.sort-by-date > a"))
-            )
-            sortbydate_btn.click()
-            pTxt = "\t\t(Success)\tSofted by 'Date added'"
-            print(pTxt)
+            if len(images) > 0:
+                #images[0].find_element_by_tag_name["a"].click()
+                images[0].click()
+                pTxt = "\t\t(Success)\tImage is clicked"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\tImage can not be clickable"
+                print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to softed by 'Date added'"
+            pTxt = "\t\t(Error)\tImage can not be clickable"
             print(pTxt)
             self.driver.quit()
             return
 
+        ''' 7. Verify that 'Appears in 1 collection' is visible '''
+        pTxt = "\n7. Verify that 'Appears in 1 collection' is visible\n"
+        print(pTxt)
+
+        try:
+            txt1 = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.add-collection-action > h4"))
+            )
+
+            if "Appears in 1 collection" in txt1.text.strip():
+                pTxt = "\t\t(Success)\t'Appears in 1 collection' is visible"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure\t'Appears in 1 collection' is not visible"
+
+        except:
+            pTxt = "\t\t(Error)\t'Appears in 1 collection' is not visible"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 8. Verify that an image is visible on the right side '''
+        pTxt = "\n8. Verify that an image is visible on the right side\n"
+        print(pTxt)
+
+        try:
+            img1 = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.item-content > div.picture-item > img"))
+            )
+
+            pTxt = "\t\t(Success)\tAn image is visible on the right side"
+            print(pTxt)
+
+        except:
+            pTxt = "\t\t(Error)\tNo image is visible on the right side"
+            print(pTxt)
+            self.driver.quit()
+            return
 
         self.driver.quit()
         return
 
 if __name__ == '__main__':
-    app = C004_005(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = C006(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                collection_txt='Kumbu Test 6')
     app.startSteps()
