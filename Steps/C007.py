@@ -9,13 +9,14 @@ import time
 
 ''' Edit Title '''
 class C007():
-    def __init__(self, url, email, password, collection_txt):
+    def __init__(self, url, email, password, collection_txt, img_text):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
         self.collection_txt = collection_txt
+        self.img_text = img_text
 
     def startSteps(self):
 
@@ -186,9 +187,72 @@ class C007():
 
             pTxt = "\t\t(Success)\tAn image is visible on the right side"
             print(pTxt)
-
         except:
             pTxt = "\t\t(Error)\tNo image is visible on the right side"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 9. Click on item-title and replace with 'Test Image $TEST_NUMBER' '''
+        pTxt = "\n9. Click on item-title and replace with 'Test Image $TEST_NUMBER'\n"
+        print(pTxt)
+
+        try:
+            item_title = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.meta-info > h2"))
+            )
+
+            actionChains = ActionChains(self.driver)
+            actionChains.click(item_title).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
+                .send_keys(Keys.DELETE).send_keys(self.img_text).perform()
+
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 10. Click on the little checkmark '''
+        pTxt = "\n10. Click on the little checkmark\n"
+        print(pTxt)
+
+        try:
+            check_btn = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.meta-info > a.confirm-item-title-edition"))
+            )
+
+            check_btn.click()
+
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 11. Verify that 'Test Image $TEST_NUMBER' is visible '''
+        pTxt = "\n11. Verify that 'Test Image $TEST_NUMBER' is visible\n"
+        print(pTxt)
+
+        try:
+            item_title = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.meta-info > h2"))
+            )
+
+            if self.img_text in item_title.text.strip():
+                pTxt = "\t\t(Success)\t'{}' is visible".format(self.img_text)
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\t'{}' is not visible".format(self.img_text)
+                print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t'{}' is not visible".format(self.img_text)
             print(pTxt)
             self.driver.quit()
             return
@@ -198,5 +262,5 @@ class C007():
 
 if __name__ == '__main__':
     app = C007(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 6')
+               collection_txt='Kumbu Test 6', img_text='Test Image 6')
     app.startSteps()

@@ -1248,3 +1248,35 @@ JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171
 1507692762341	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/item/C7a602675-4bdf-4f04-8137-2b597db8a0d4/I873207bb-3a0d-4051-aa65-226dacc95fd9/1/"
 1507692767816	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/item/C7a602675-4bdf-4f04-8137-2b597db8a0d4/I873207bb-3a0d-4051-aa65-226dacc95fd9/1/"
 1507692767853	Marionette	INFO	New connections will no longer be accepted
+1507693736956	geckodriver	INFO	Listening on 127.0.0.1:58533
+1507693739009	geckodriver::marionette	INFO	Starting browser \\?\C:\Program Files (x86)\Mozilla Firefox\firefox.exe with args ["-marionette"]
+1507693739487	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///C:/Program%20Files%20(x86)/Mozilla%20Firefox/omni.ja!/components/addonManager.js:65
+1507693740108	Marionette	INFO	Enabled via --marionette
+[Child 71424] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 71424] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+1507693742278	Marionette	INFO	Listening on port 58539
+1507693742632	Marionette	WARN	TLS certificate errors will be ignored for this session
+1507693742671	Marionette	DEBUG	Register listener.js for window 4294967297
+1507693742727	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1507693745249	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1507693745250	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1507693750869	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/login?next=%2F"
+1507693751029	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/login?next=%2F"
+JavaScript error: https://staging.getkumbu.com/static/js/unlogged.min.js?v=20171003 line 1 > eval, line 1580: Error: Syntax error, unrecognized expression: unsupported pseudo: -webkit-autofill
+1507693751171	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/login?next=%2F"
+1507693753436	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/login?next=%2F"
+1507693753437	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/login?next=%2F"
+1507693758641	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/"
+1507693758643	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/"
+1507693758831	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/"
+1507693759683	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/"
+1507693759684	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/"
+1507693759836	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/collection/C7a602675-4bdf-4f04-8137-2b597db8a0d4/"
+1507693764242	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/collection/C7a602675-4bdf-4f04-8137-2b597db8a0d4/"
+1507693764303	Marionette	DEBUG	Received DOM event "beforeunload" for "https://staging.getkumbu.com/collection/C7a602675-4bdf-4f04-8137-2b597db8a0d4/"
+1507693765111	Marionette	DEBUG	Received DOM event "pagehide" for "https://staging.getkumbu.com/collection/C7a602675-4bdf-4f04-8137-2b597db8a0d4/"
+1507693765113	Marionette	DEBUG	Received DOM event "unload" for "https://staging.getkumbu.com/collection/C7a602675-4bdf-4f04-8137-2b597db8a0d4/"
+1507693769633	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staging.getkumbu.com/item/C7a602675-4bdf-4f04-8137-2b597db8a0d4/I873207bb-3a0d-4051-aa65-226dacc95fd9/1/"
+1507693773255	Marionette	DEBUG	Received DOM event "pageshow" for "https://staging.getkumbu.com/item/C7a602675-4bdf-4f04-8137-2b597db8a0d4/I873207bb-3a0d-4051-aa65-226dacc95fd9/1/"
+1507693774012	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1507693774028	Marionette	INFO	New connections will no longer be accepted
