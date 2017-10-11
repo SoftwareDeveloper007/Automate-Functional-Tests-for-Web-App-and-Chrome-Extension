@@ -7,8 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Move Items '''
-class C012():
+''' Scrolling '''
+class C015():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -19,7 +19,7 @@ class C012():
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C012' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C015' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -130,25 +130,64 @@ class C012():
             self.driver.quit()
             return
 
-        ''' 6. Select the first item (click in the circle) '''
-        pTxt = "\n6. Select the first item (click in the circle)\n"
+        ''' 6. Check the number in body > div.content.row.expanded > div.collection-navigation-wrapper > '''
+        ''' div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number is higher than 30 '''
+        pTxt = "\n6. Check the number in body > div.content.row.expanded > div.collection-navigation-wrapper > " \
+               "div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number is higher than 30\n"
         print(pTxt)
 
         try:
-            images = WebDriverWait(self.driver, 50).until(
-                EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
-            )
-            self.driver.execute_script("arguments[0].scrollIntoView();", images[0])
-
-            check = WebDriverWait(images[0], 50).until(
-                EC.visibility_of_element_located((By.CSS_SELECTOR, "div.item-overlay > span.item-selector.has-selection-event > img.selection"))
+            memory_txt = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "body > div.content.row.expanded > div.collection-navigation-wrapper > div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number")
+                )
             )
 
-            #actions = ActionChains(self.driver)
-            #actions.move_to_element(check).click().perform()
-            check.click()
+            memory_cnt = int(memory_txt.text.strip())
+            pTxt = "\t\t(Success)\t{}".format(memory_cnt)
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 7. Scroll down '''
+        ''' 8. Wait 500ms '''
+        ''' 9. Scroll down until reaching bottom '''
+
+        pTxt = "\n7. Scroll down\n"
+        print(pTxt)
+        pTxt = "\n8. Wait 500ms\n"
+        print(pTxt)
+        pTxt = "\n9. Scroll down until reaching bottom\n"
+        print(pTxt)
+
+        try:
+            total_cnt = 0
+
+            while memory_cnt > total_cnt:
+                images = WebDriverWait(self.driver, 50).until(
+                    EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
+                )
+                total_cnt = len(images)
+                self.driver.execute_script("arguments[0].scrollIntoView();", images[-1])
+                time.sleep(0.5)
 
             pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 10. Count the number of squares and verify it matches the number '''
+        pTxt = "\n10. Count the number of squares and verify it matches the number\n"
+        print(pTxt)
+
+        try:
+            pTxt = "\t\t(Success)\tThe number of squares is {}.".format(total_cnt)
             print(pTxt)
         except:
             pTxt = "\t\t(Error)\t"
@@ -160,6 +199,6 @@ class C012():
         return
 
 if __name__ == '__main__':
-    app = C012(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = C015(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                collection_txt='Memories')
     app.startSteps()
