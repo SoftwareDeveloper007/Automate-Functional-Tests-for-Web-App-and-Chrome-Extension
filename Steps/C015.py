@@ -156,11 +156,11 @@ class C015():
         ''' 8. Wait 500ms '''
         ''' 9. Scroll down until reaching bottom '''
 
-        pTxt = "\n7. Scroll down\n"
+        pTxt = "\n7. Scroll down"
         print(pTxt)
-        pTxt = "\n8. Wait 500ms\n"
+        pTxt = "8. Wait 500ms"
         print(pTxt)
-        pTxt = "\n9. Scroll down until reaching bottom\n"
+        pTxt = "9. Scroll down until reaching bottom\n"
         print(pTxt)
 
         try:
