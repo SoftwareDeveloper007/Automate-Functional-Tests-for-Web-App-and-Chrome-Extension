@@ -18,7 +18,7 @@ class C002():
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C001' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C002' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()

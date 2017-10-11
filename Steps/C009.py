@@ -7,20 +7,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Check  coverimage '''
-''' Date Added Sort  '''
-class C004_005():
-    def __init__(self, url, email, password, collection_txt):
+''' Download '''
+class C009():
+    def __init__(self, url, email, password, collection_txt, img_txt, tag_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
         self.collection_txt = collection_txt
+        self.img_txt = img_txt
+        self.tag_txt = tag_txt
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C004_005' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C009' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -130,42 +131,105 @@ class C004_005():
             self.driver.quit()
             return
 
-        ''' 5. Reload page '''
-        pTxt = "\n5. Reload page\n"
-        print(pTxt)
-        self.driver.refresh()
+        memory_txt = WebDriverWait(self.driver, 50).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "p.collection-meta.item-info"))
+        )
 
-        ''' 6. Sortby '''
-        pTxt = "\n6. Sortby\n"
+        pTxt = "\nNote: '{}' is displayed\n".format(memory_txt.text.strip())
         print(pTxt)
 
+        ''' 6. Click on the image whose src starts with /item/thumbnail '''
+        pTxt = "\n6. Click on the image whose src starts with /item/thumbnail\n"
+        print(pTxt)
         try:
-
-            sortby_btn = WebDriverWait(self.driver, 100).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "li.is-dropdown-submenu-parent.opens-left > a"))
+            images = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
             )
 
-            sortby_btn.click()
-
-            sortbydate_btn = WebDriverWait(self.driver, 100).until(
-                EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "li.sort-by-date > a"))
-            )
-            sortbydate_btn.click()
-            pTxt = "\t\t(Success)\tSofted by 'Date added'"
-            print(pTxt)
+            if len(images) > 0:
+                #images[0].find_element_by_tag_name["a"].click()
+                images[0].click()
+                pTxt = "\t\t(Success)\tImage is clicked"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\tImage can not be clickable"
+                print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to softed by 'Date added'"
+            pTxt = "\t\t(Error)\tImage can not be clickable"
             print(pTxt)
             self.driver.quit()
             return
 
+        ''' 7. Verify that 'Appears in 1 collection' is visible '''
+        pTxt = "\n7. Verify that 'Appears in 1 collection' is visible\n"
+        print(pTxt)
+
+        try:
+            txt1 = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.add-collection-action > h4"))
+            )
+
+            if "Appears in 1 collection" in txt1.text.strip():
+                pTxt = "\t\t(Success)\t'Appears in 1 collection' is visible"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure\t'Appears in 1 collection' is not visible"
+
+        except:
+            pTxt = "\t\t(Error)\t'Appears in 1 collection' is not visible"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 8. Verify that an image is visible on the right side '''
+        pTxt = "\n8. Verify that an image is visible on the right side\n"
+        print(pTxt)
+
+        try:
+            img1 = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.item-content > div.picture-item > img"))
+            )
+
+            pTxt = "\t\t(Success)\tAn image is visible on the right side"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tNo image is visible on the right side"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 9. Click Download Icon '''
+        pTxt = "\n9. Click Download Icon\n"
+        print(pTxt)
+
+        try:
+            download_icon = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.item-options > a.download-item-link"))
+            )
+
+            download_icon.click()
+
+            pTxt = "\t\t(Success)\tClicked Download Icon"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tFailed to click Download Icon"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 10. Confirm the image is downloaded '''
+        pTxt = "\n10. Confirm the image is downloaded\n"
+        print(pTxt)
 
         self.driver.quit()
         return
 
 if __name__ == '__main__':
-    app = C004_005(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 6')
+    app = C009(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+               collection_txt='Kumbu Test 6', img_txt='Test Image 6', tag_txt='Test Tag 6')
     app.startSteps()

@@ -7,20 +7,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Edit Title '''
-class C007():
-    def __init__(self, url, email, password, collection_txt, img_text):
+''' Add Tag / Remove Tag '''
+class C008():
+    def __init__(self, url, email, password, collection_txt, img_txt, tag_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
         self.collection_txt = collection_txt
-        self.img_text = img_text
+        self.img_txt = img_txt
+        self.tag_txt = tag_txt
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C007' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C008' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -193,19 +194,36 @@ class C007():
             self.driver.quit()
             return
 
-        ''' 9. Click on item-title and replace with 'Test Image $TEST_NUMBER' '''
-        pTxt = "\n9. Click on item-title and replace with 'Test Image $TEST_NUMBER'\n"
+        ''' 9. Click on the + sign next to tag '''
+        pTxt = "\n9. Click on the + sign next to tag\n"
         print(pTxt)
 
         try:
-            item_title = WebDriverWait(self.driver, 50).until(
+            plug_sign = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > h2"))
+                    (By.CSS_SELECTOR, "a#add-tags-link"))
             )
+            plug_sign.click()
 
+            pTxt = "\t\t(Success)\tClicked on the + sign next to tag"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tFailed to click on the + sign next to tag"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 10. Enter Test Tag $TEST_NUMBER and Hit Enter'''
+        pTxt = "\n10. Enter Test Tag $TEST_NUMBER and Hit Enter\n"
+        print(pTxt)
+
+        try:
+            input_tag = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "input.js-typeahead-tags"))
+            )
             actionChains = ActionChains(self.driver)
-            actionChains.click(item_title).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
-                .send_keys(Keys.DELETE).send_keys(self.img_text).perform()
+            actionChains.click(input_tag).send_keys(self.tag_txt).send_keys(Keys.ENTER).perform()
 
             pTxt = "\t\t(Success)\t"
             print(pTxt)
@@ -215,44 +233,50 @@ class C007():
             self.driver.quit()
             return
 
-        ''' 10. Click on the little checkmark '''
-        pTxt = "\n10. Click on the little checkmark\n"
+        ''' 11. Verify that “Has 1 tag” is displayed'''
+        pTxt = "\n11. Verify that “Has 1 tag” is displayed\n"
         print(pTxt)
 
         try:
-            check_btn = WebDriverWait(self.driver, 50).until(
+            has_tag = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > a.confirm-item-title-edition"))
+                    (By.CSS_SELECTOR, "div.add-tag-action > h4"))
             )
 
-            check_btn.click()
-
-            pTxt = "\t\t(Success)\t"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\t"
-            print(pTxt)
-            self.driver.quit()
-            return
-
-        ''' 11. Verify that 'Test Image $TEST_NUMBER' is visible '''
-        pTxt = "\n11. Verify that 'Test Image $TEST_NUMBER' is visible\n"
-        print(pTxt)
-
-        try:
-            item_title = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > h2"))
-            )
-
-            if self.img_text in item_title.text.strip():
-                pTxt = "\t\t(Success)\t'{}' is visible".format(self.img_text)
+            if "Has 1 tag" in has_tag.text.strip():
+                pTxt = "\t\t(Success)\t'Has 1 tag' is visible"
                 print(pTxt)
             else:
-                pTxt = "\t\t(Failure)\t'{}' is not visible".format(self.img_text)
+                pTxt = "\t\t(Failure)\t'Has 1 tag' is not visible"
                 print(pTxt)
+                self.driver.quit()
+                return
         except:
-            pTxt = "\t\t(Error)\t'{}' is not visible".format(self.img_text)
+            pTxt = "\t\t(Error)\t'Has 1 tag' is not visible"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 12. Verify that “Test Tag x” is displayed '''
+        pTxt = "\n12. Verify that “Test Tag x” is displayed\n"
+        print(pTxt)
+
+        try:
+            test_tag = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div#tag-list >span.tag"))
+            )
+
+            if self.tag_txt + ' x' in test_tag.text.strip():
+                pTxt = "\t\t(Success)\t'{}' is visible".format(self.tag_txt + ' x')
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\t'{}' is not visible".format(self.tag_txt + ' x')
+                print(pTxt)
+                self.driver.quit()
+                return
+        except:
+            pTxt = "\t\t(Error)\t'{}' is not visible".format(self.tag_txt + ' x')
             print(pTxt)
             self.driver.quit()
             return
@@ -261,6 +285,6 @@ class C007():
         return
 
 if __name__ == '__main__':
-    app = C007(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 6', img_text='Test Image 6')
+    app = C008(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+               collection_txt='Kumbu Test 6', img_txt='Test Image 6', tag_txt='Test Tag 6')
     app.startSteps()

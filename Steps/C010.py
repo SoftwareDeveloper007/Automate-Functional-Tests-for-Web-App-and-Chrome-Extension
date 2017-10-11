@@ -7,20 +7,21 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-''' Edit Title '''
-class C007():
-    def __init__(self, url, email, password, collection_txt, img_text):
+''' Delete Item '''
+class C010():
+    def __init__(self, url, email, password, collection_txt, img_txt, tag_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
         self.collection_txt = collection_txt
-        self.img_text = img_text
+        self.img_txt = img_txt
+        self.tag_txt = tag_txt
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C007' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'C010' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -130,6 +131,14 @@ class C007():
             self.driver.quit()
             return
 
+        memory_txt = WebDriverWait(self.driver, 50).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "p.collection-meta.item-info"))
+        )
+
+        pTxt = "\nNote: '{}' is displayed\n".format(memory_txt.text.strip())
+        print(pTxt)
+
         ''' 6. Click on the image whose src starts with /item/thumbnail '''
         pTxt = "\n6. Click on the image whose src starts with /item/thumbnail\n"
         print(pTxt)
@@ -193,66 +202,84 @@ class C007():
             self.driver.quit()
             return
 
-        ''' 9. Click on item-title and replace with 'Test Image $TEST_NUMBER' '''
-        pTxt = "\n9. Click on item-title and replace with 'Test Image $TEST_NUMBER'\n"
+        ''' 9. Click Delete Icon '''
+        pTxt = "\n9. Click Delete Icon\n"
         print(pTxt)
 
         try:
-            item_title = WebDriverWait(self.driver, 50).until(
+            delete_icon = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > h2"))
+                    (By.CSS_SELECTOR, "div.sidebar-buttons.single-item-sidebar.kumbu-tour-item > a.delete-item-link"))
             )
 
-            actionChains = ActionChains(self.driver)
-            actionChains.click(item_title).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
-                .send_keys(Keys.DELETE).send_keys(self.img_text).perform()
+            delete_icon.click()
 
-            pTxt = "\t\t(Success)\t"
+            pTxt = "\t\t(Success)\tClicked Delete Icon"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\t"
+            pTxt = "\t\t(Error)\tFailed to click Delete Icon"
             print(pTxt)
             self.driver.quit()
             return
 
-        ''' 10. Click on the little checkmark '''
-        pTxt = "\n10. Click on the little checkmark\n"
+        ''' 10. Verify that 'This souvenir appears in 1 collection. It will be gone forever' is displayed '''
+        pTxt = "\n10. Verify that 'This souvenir appears in 1 collection. It will be gone forever' is displayed\n"
         print(pTxt)
 
         try:
-            check_btn = WebDriverWait(self.driver, 50).until(
+            message_txt = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > a.confirm-item-title-edition"))
+                    (By.CSS_SELECTOR, "div.delete-wrapper.text-center > h4"))
             )
 
-            check_btn.click()
-
-            pTxt = "\t\t(Success)\t"
-            print(pTxt)
-        except:
-            pTxt = "\t\t(Error)\t"
-            print(pTxt)
-            self.driver.quit()
-            return
-
-        ''' 11. Verify that 'Test Image $TEST_NUMBER' is visible '''
-        pTxt = "\n11. Verify that 'Test Image $TEST_NUMBER' is visible\n"
-        print(pTxt)
-
-        try:
-            item_title = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "div.meta-info > h2"))
-            )
-
-            if self.img_text in item_title.text.strip():
-                pTxt = "\t\t(Success)\t'{}' is visible".format(self.img_text)
+            if "This souvenir appears in 1 collection. It will be gone forever" in message_txt.text.strip():
+                pTxt = "\t\t(Success)\t"
                 print(pTxt)
             else:
-                pTxt = "\t\t(Failure)\t'{}' is not visible".format(self.img_text)
+                pTxt = "\t\t(Failure)\t"
                 print(pTxt)
+                self.driver.quit()
+                return
         except:
-            pTxt = "\t\t(Error)\t'{}' is not visible".format(self.img_text)
+            pTxt = "\t\t(Error)\tFailed to click Delete Icon"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 11. Click 'Yes, Delete' '''
+        pTxt = "\n11. Click Delete Icon\n"
+        print(pTxt)
+
+        try:
+            delete_btn = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.delete-buttons > a.button"))
+            )
+
+            delete_btn.click()
+
+            pTxt = "\t\t(Success)\tClicked Delete Button"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tFailed to click Delete Button"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 12. Check that '1 memory' is displayed '''
+        pTxt = "\n12. Check that '1 memory' is displayed\n"
+        print(pTxt)
+
+        try:
+            memory_txt = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "p.collection-meta.item-info"))
+            )
+
+            pTxt = "\t\t(Success)\t'{}' is displayed".format(memory_txt.text.strip())
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
             print(pTxt)
             self.driver.quit()
             return
@@ -261,6 +288,6 @@ class C007():
         return
 
 if __name__ == '__main__':
-    app = C007(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 6', img_text='Test Image 6')
+    app = C010(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+               collection_txt='Kumbu Test 6', img_txt='Test Image 6', tag_txt='Test Tag 6')
     app.startSteps()
