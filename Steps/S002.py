@@ -268,6 +268,8 @@ class S002():
             return
 
         ''' 15. Scroll to the top '''
+        pTxt = "\n15. Scroll to the top\n"
+        print(pTxt)
         try:
             self.driver.execute_script("arguments[0].scrollIntoView();", images[0])
             pTxt = "\t\t(Success)\t"
@@ -281,6 +283,8 @@ class S002():
         time.sleep(5)
 
         ''' 16. Click on the first item '''
+        pTxt = "\n16. Click on the first item\n"
+        print(pTxt)
         try:
             images[0].click()
             pTxt = "\t\t(Success)\t"
