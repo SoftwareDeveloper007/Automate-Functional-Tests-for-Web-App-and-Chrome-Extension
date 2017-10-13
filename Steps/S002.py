@@ -278,6 +278,8 @@ class S002():
             self.driver.quit()
             return
 
+        time.sleep(5)
+
         ''' 16. Click on the first item '''
         try:
             images[0].click()
@@ -312,6 +314,8 @@ class S002():
             self.driver.quit()
             return
 
+        time.sleep(5)
+
         ''' 18. Verify that an image is loading '''
         pTxt = "\n18. Verify that an image is loading\n"
         print(pTxt)
@@ -328,6 +332,8 @@ class S002():
             print(pTxt)
             self.driver.quit()
             return
+
+        time.sleep(5)
 
         ''' 19. Click the Previous Button '''
         pTxt = "\n19. Click the Previous Button\n"
@@ -362,6 +368,8 @@ class S002():
             print(pTxt)
             self.driver.quit()
             return
+
+        time.sleep(3)
 
         self.driver.quit()
         return
