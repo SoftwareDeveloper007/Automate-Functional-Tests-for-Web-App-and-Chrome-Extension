@@ -130,16 +130,14 @@ class S001():
             self.driver.quit()
             return
 
-        ''' 6. Check the number in body > div.content.row.expanded > div.collection-navigation-wrapper > '''
-        ''' div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number is higher than 30 '''
-        pTxt = "\n6. Check the number in body > div.content.row.expanded > div.collection-navigation-wrapper > " \
-               "div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number is higher than 30\n"
+        ''' 6. Check the number div.collection-navigation-wrapper > div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number '''
+        pTxt = "\n6. Check the number div.collection-navigation-wrapper > div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number\n"
         print(pTxt)
 
         try:
             memory_txt = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_element_located(
-                    (By.CSS_SELECTOR, "body > div.content.row.expanded > div.collection-navigation-wrapper > div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number")
+                    (By.CSS_SELECTOR, "div.collection-navigation-wrapper > div.title-wrapper.text-center.has-cover > div.small-text > p > span.collection-item-number")
                 )
             )
 
@@ -152,28 +150,18 @@ class S001():
             self.driver.quit()
             return
 
-        ''' 7. Scroll down '''
-        ''' 8. Wait 500ms '''
-        ''' 9. Scroll down until reaching bottom '''
-
-        pTxt = "\n7. Scroll down"
-        print(pTxt)
-        pTxt = "8. Wait 500ms"
-        print(pTxt)
-        pTxt = "9. Scroll down until reaching bottom\n"
+        ''' 7. Click on Share '''
+        pTxt = "\n7. Click on Share\n"
         print(pTxt)
 
         try:
-            total_cnt = 0
-
-            while memory_cnt > total_cnt:
-                images = WebDriverWait(self.driver, 50).until(
-                    EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.item.columns.small-6.medium-2.upload"))
+            share_btn = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "a#shareCollection")
                 )
-                total_cnt = len(images)
-                self.driver.execute_script("arguments[0].scrollIntoView();", images[-1])
-                time.sleep(0.5)
+            )
 
+            share_btn.click()
             pTxt = "\t\t(Success)\t"
             print(pTxt)
         except:
@@ -182,12 +170,19 @@ class S001():
             self.driver.quit()
             return
 
-        ''' 10. Count the number of squares and verify it matches the number '''
-        pTxt = "\n10. Count the number of squares and verify it matches the number\n"
+        ''' 8. Verify that “Share Collection” is displayed '''
+        pTxt = "\n8. Verify that “Share Collection” is displayed\n"
         print(pTxt)
 
         try:
-            pTxt = "\t\t(Success)\tThe number of squares is {}.".format(total_cnt)
+            share_txt = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located(
+                    (By.CSS_SELECTOR, "div.share-wrapper > h2")
+                )
+            )
+
+            share_txt = share_txt.text.strip()
+            pTxt = "\t\t(Success)\t'{}' is displayed".format(share_txt)
             print(pTxt)
         except:
             pTxt = "\t\t(Error)\t"
