@@ -244,7 +244,7 @@ class S002():
                 )
                 total_cnt = len(images)
                 self.driver.execute_script("arguments[0].scrollIntoView();", images[-1])
-                time.sleep(0.5)
+                time.sleep(2)
 
             pTxt = "\t\t(Success)\t"
             print(pTxt)
