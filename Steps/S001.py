@@ -218,6 +218,54 @@ class S001():
         pTxt = "\t\t(Success)\tCopied Link: '{}'".format(copied_link)
         print(pTxt)
 
+        " 11. Navigate to staging.getkumbu.com/logout "
+        pTxt = "\n11. Navigate to staging.getkumbu.com/logout\n"
+        print(pTxt)
+
+        self.driver.get("https://staging.getkumbu.com/logout")
+        time.sleep(5)
+
+        " 12. Open Shared Link "
+        pTxt = "\n12. Open Shared Link\n"
+        print(pTxt)
+        self.driver.get(copied_link)
+        time.sleep(5)
+
+        " 13. -	Scroll down to the bottom "
+        pTxt = "\n13. -	Scroll down to the bottom\n"
+        print(pTxt)
+
+        try:
+            total_cnt = 0
+
+            while memory_cnt > total_cnt:
+                images = WebDriverWait(self.driver, 50).until(
+                    EC.visibility_of_all_elements_located((By.CSS_SELECTOR, "div.item.columns.small-6.medium-2"))
+                )
+                total_cnt = len(images)
+                self.driver.execute_script("arguments[0].scrollIntoView();", images[-1])
+                time.sleep(0.5)
+
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 14. Count the number of squares and verify it matches the number '''
+        pTxt = "\n14. Count the number of squares and verify it matches the number\n"
+        print(pTxt)
+
+        try:
+            pTxt = "\t\t(Success)\tThe number of squares is {}.".format(total_cnt)
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
 
         self.driver.quit()
         return
