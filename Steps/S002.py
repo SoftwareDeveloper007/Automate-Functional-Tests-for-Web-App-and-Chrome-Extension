@@ -7,8 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time, pyperclip
 
-''' Share a collection '''
-class S001():
+''' View Items in a Shared Collection '''
+class S002():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -19,7 +19,7 @@ class S001():
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'S001' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'S002' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -267,10 +267,34 @@ class S001():
             self.driver.quit()
             return
 
+        ''' 15. Scroll to the top '''
+        try:
+            self.driver.execute_script("arguments[0].scrollIntoView();", images[0])
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 16. Click on the first item '''
+        try:
+            images[0].click()
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        
+
         self.driver.quit()
         return
 
 if __name__ == '__main__':
-    app = S001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = S002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                collection_txt='Memories')
     app.startSteps()
