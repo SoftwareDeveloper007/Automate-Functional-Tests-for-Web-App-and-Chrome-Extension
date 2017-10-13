@@ -289,7 +289,79 @@ class S002():
             self.driver.quit()
             return
 
-        
+        ''' 17. Verify that “Back to Memories” is displayed '''
+        pTxt = "\n17. Verify that “Back to Memories” is displayed\n"
+        print(pTxt)
+
+        try:
+            back_txt = WebDriverWait(self.driver, 50).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "a.item-nav.back-collection"))
+            )
+
+            if "Back to Memories" in back_txt.text.strip():
+                pTxt = "\t\t(Success)\t"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\t"
+                print(pTxt)
+                self.driver.quit()
+                return
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 18. Verify that an image is loading '''
+        pTxt = "\n18. Verify that an image is loading\n"
+        print(pTxt)
+
+        try:
+            img = WebDriverWait(self.driver, 50).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "div.picture-item > img"))
+            )
+
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 19. Click the Previous Button '''
+        pTxt = "\n19. Click the Previous Button\n"
+        print(pTxt)
+
+        try:
+            previous_btn = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "a#previous-item"))
+            )
+            previous_btn.click()
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        ''' 20. Verify that the last item is displayed '''
+        pTxt = "\n20. Verify that the last item is displayed\n"
+        print(pTxt)
+
+        try:
+            img = WebDriverWait(self.driver, 50).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "div.picture-item > img"))
+            )
+
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
 
         self.driver.quit()
         return
