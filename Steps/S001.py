@@ -5,7 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
-import time
+import time, pyperclip
 
 ''' Share a collection '''
 class S001():
@@ -176,7 +176,7 @@ class S001():
 
         try:
             share_txt = WebDriverWait(self.driver, 50).until(
-                EC.presence_of_element_located(
+                EC.visibility_of_element_located(
                     (By.CSS_SELECTOR, "div.share-wrapper > h2")
                 )
             )
@@ -189,6 +189,35 @@ class S001():
             print(pTxt)
             self.driver.quit()
             return
+
+        ''' 9. Click on 'Copy Link' '''
+        pTxt = "\n9. Click on 'Copy Link'\n"
+        print(pTxt)
+
+        try:
+            copy_btn = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable(
+                    (By.CSS_SELECTOR, "label.collection-share-link-copy")
+                )
+            )
+
+            copy_btn.click()
+            pTxt = "\t\t(Success)\t"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        " 10. Copy shared link "
+        pTxt = "\n10. Copy shared link\n"
+        print(pTxt)
+
+        copied_link = pyperclip.paste()
+        pTxt = "\t\t(Success)\tCopied Link: '{}'".format(copied_link)
+        print(pTxt)
+
 
         self.driver.quit()
         return
