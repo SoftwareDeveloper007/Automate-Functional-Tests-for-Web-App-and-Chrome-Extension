@@ -5,11 +5,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
-import time
+import time, pyperclip
 
-''' Check  coverimage '''
-''' Date Added Sort  '''
-class C004_005():
+''' Scroll through memories '''
+class M001():
     def __init__(self, url, email, password, collection_txt):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -20,7 +19,7 @@ class C004_005():
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'C004_005' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'M001' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -95,48 +94,24 @@ class C004_005():
             self.driver.quit()
             return
 
-        ''' 5. Click on 'Collection for Test $TEST_NUMBER' '''
-        pTxt = "\n5. Click on 'Collection for Test $TEST_NUMBER'\n"
+        ''' 5. Click on the Memories tab '''
+        pTxt = "\n5. Click on the Memories tab\n"
         print(pTxt)
         try:
-            collections = WebDriverWait(self.driver, 50).until(
-                EC.visibility_of_all_elements_located(
-                    (By.CSS_SELECTOR, "div.collection.columns.small-12.medium-3.text-center"))
+            memories_tab = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "a.souvenirs-menu-link"))
             )
-            flag = False
-            for collection in collections:
-                if self.collection_txt in collection.text.strip():
-                    flag = True
-                    break
-
-            if flag:
-                try:
-                    collection.click()
-                    pTxt = "\t\t(Success)\tClicked Successfully"
-                    print(pTxt)
-                except:
-                    pTxt = "\t\t(Error)\tFailed to click"
-                    print(pTxt)
-                    self.driver.quit()
-                    return
-            else:
-                pTxt = "\t\t(Failure)\tFailed to click"
-                print(pTxt)
-                self.driver.quit()
-                return
+            memories_tab.click()
+            pTxt = "\t\t(Success)\tClicked on the Memories tab"
+            print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to click"
+            pTxt = "\t\t(Error)\tFailed to click the Memories tab"
             print(pTxt)
             self.driver.quit()
             return
 
-        ''' 5. Reload page '''
-        pTxt = "\n5. Reload page\n"
-        print(pTxt)
-        self.driver.refresh()
-
-        ''' 6. Sortby '''
-        pTxt = "\n6. Sortby\n"
+        ''' 6. Click 'on Sort '''
+        pTxt = "\n5. Click on the Memories tab\n"
         print(pTxt)
 
         try:
@@ -149,7 +124,7 @@ class C004_005():
 
             sortbydate_btn = WebDriverWait(self.driver, 100).until(
                 EC.element_to_be_clickable(
-                    (By.CSS_SELECTOR, "li.sort-by-date > a"))
+                    (By.CSS_SELECTOR, "li.sort-by-title > a"))
             )
             sortbydate_btn.click()
             pTxt = "\t\t(Success)\tSofted by 'Date added'"
@@ -160,11 +135,13 @@ class C004_005():
             self.driver.quit()
             return
 
+        time.sleep(10)
+
 
         self.driver.quit()
         return
 
 if __name__ == '__main__':
-    app = C004_005(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Kumbu Test 6')
+    app = M001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+               collection_txt='Memories')
     app.startSteps()
