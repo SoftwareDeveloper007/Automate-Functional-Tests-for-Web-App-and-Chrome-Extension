@@ -7,8 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 import time, pyperclip
 
-''' Scroll through memories '''
-class M001():
+''' Update Name '''
+class P002():
     def __init__(self, url, email, password, profile_name):
 
         ''' --- Initialize URL, Email, Password --- '''
@@ -19,7 +19,7 @@ class M001():
 
     def startSteps(self):
 
-        pTxt = "\n-------- Step 'M001' started!!! --------------------------------------------------------------------"
+        pTxt = "\n-------- Step 'P002' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
         self.driver = webdriver.Firefox()
@@ -164,12 +164,30 @@ class M001():
             self.driver.quit()
             return
 
-        
+        ''' 9. Verify the 'Your personal data has been successfully changed' is displayed '''
+        pTxt = "\n9. Verify the 'Your personal data has been successfully changed' is displayed\n"
+        print(pTxt)
+        try:
+            usrname_txt = WebDriverWait(self.driver, 50).until(
+                EC.presence_of_element_located((By.CSS_SELECTOR, "p.usernameValue"))
+            )
+
+            if self.profile_name is usrname_txt.text.strip():
+                pTxt = "\t\t(Success)\t"
+                print(pTxt)
+            else:
+                pTxt = "\t\t(Failure)\t"
+                print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\t"
+            print(pTxt)
+            self.driver.quit()
+            return
 
         self.driver.quit()
         return
 
 if __name__ == '__main__':
-    app = M001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
+    app = P002(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
                profile_name='Kumbu Test 5')
     app.startSteps()
