@@ -22,6 +22,7 @@ class P002():
         pTxt = "\n-------- Step 'P002' started!!! --------------------------------------------------------------------"
         print(pTxt)
 
+        #self.driver = webdriver.Firefox()
         self.driver = webdriver.Firefox()
         self.driver.maximize_window()
 
