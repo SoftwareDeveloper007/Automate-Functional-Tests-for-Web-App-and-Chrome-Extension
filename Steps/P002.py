@@ -9,13 +9,13 @@ import time, pyperclip
 
 ''' Scroll through memories '''
 class M001():
-    def __init__(self, url, email, password, collection_txt):
+    def __init__(self, url, email, password, profile_name):
 
         ''' --- Initialize URL, Email, Password --- '''
         self.url = 'https://' + url
         self.email = email
         self.password = password
-        self.collection_txt = collection_txt
+        self.profile_name = profile_name
 
     def startSteps(self):
 
@@ -126,27 +126,50 @@ class M001():
             self.driver.quit()
             return
 
-        ''' 6. Add $TEST_NUMBER at the end of the name field '''
-        pTxt = "\n6. Add $TEST_NUMBER at the end of the name field\n"
+        ''' 7. Add $TEST_NUMBER at the end of the name field '''
+        pTxt = "\n7. Add $TEST_NUMBER at the end of the name field\n"
         print(pTxt)
         try:
             inputs = WebDriverWait(self.driver, 50).until(
                 EC.presence_of_all_elements_located((By.CSS_SELECTOR, "form#profile-form > input"))
             )
-            edit_btn.click()
-            pTxt = "\t\t(Success)\tClicked 'Edit Profile'"
+
+            actionChains = ActionChains(self.driver)
+            actionChains.click(inputs[0]).key_down(Keys.CONTROL).send_keys('a').key_up(Keys.CONTROL) \
+                .send_keys(Keys.DELETE).send_keys(self.profile_name).perform()
+
+            pTxt = "\t\t(Success)\t"
             print(pTxt)
         except:
-            pTxt = "\t\t(Error)\tFailed to click 'Edit Profile'"
+            pTxt = "\t\t(Error)\t"
             print(pTxt)
             self.driver.quit()
             return
 
+        ''' 8. Click Save Changes '''
+        pTxt = "\n8. Click Save Changes\n"
+        print(pTxt)
+        try:
+            save_btn = WebDriverWait(self.driver, 50).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "input#profile-submit"))
+            )
+
+            save_btn.click()
+
+            pTxt = "\t\t(Success)\tClicked Save Changes"
+            print(pTxt)
+        except:
+            pTxt = "\t\t(Error)\tFailed to click Save Changes"
+            print(pTxt)
+            self.driver.quit()
+            return
+
+        
 
         self.driver.quit()
         return
 
 if __name__ == '__main__':
     app = M001(url='staging.getkumbu.com', email='kumbutest@mailinator.com', password='kumbu is cool',
-               collection_txt='Memories')
+               profile_name='Kumbu Test 5')
     app.startSteps()
